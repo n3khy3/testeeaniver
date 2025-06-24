@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário, Rutinha! 🎉</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #FFD3E0, #FFB6C1);
+            text-align: center;
+            padding: 50px;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background-color: #FF69B4;
+            border: none;
+            padding: 15px 30px;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #FF1493;
+        }
+        .mensagem {
+            margin-top: 30px;
+            font-size: 1.4em;
+            display: none;
+            animation: fadeIn 2s forwards;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .confete {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: yellow;
+            top: -10px;
+            border-radius: 50%;
+            animation: cair 5s linear infinite;
+        }
+        @keyframes cair {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎉 Feliz Aniversário, Rutinha! 🎂</h1>
+    <p>🌸 24/06 - o dia da ruty o dia mais que especial né🌸</p>
+    <p>Clique no botão abaixo para abrir minha surpresa rrsrs</p>
+
+    <button class="btn" onclick="mostrarMensagem()">🎈 Mostrar Mensagem 🎈</button>
+
+    <div class="mensagem" id="mensagem">
+        💕 Olaa minha Rutinha! Hoje, dia 24/06, vamos celebrar muito, e eu não poderia deixar de te desejar tudo de mais lindo,,,, euuuu kkk brincadeira! 💐<br><br>
+        Que seu coração continue transbordando amor, saudavel é claro, e voce continue sendo essa pessoa que voce é, cheia de carinho e coisas boas<br><br>
+        Que essa nova fase venha cheia de sonhos realizados, muitas risadas gostosas, saúde, amor e momentos inesquecíveis! 🌟<br><br>
+        Nunca esqueça o quanto você é especial, querida e gata! 💖<br><br>
+        Te desejo um aniversário mágico e um ano repleto de coisas boas! 🎂🎁🎊<br><br>
+        🎶 Parabéns pra você ruru.. 🎶 <br><br>
+       at; Com muito carinho... ❤️ rafis
+    </div>
+
+    <script>
+        function mostrarMensagem() {
+            document.getElementById('mensagem').style.display = 'block';
+            soltarConfete();
+        }
+
+        function soltarConfete() {
+            for (let i = 0; i < 80; i++) {
+                let confete = document.createElement('div');
+                confete.classList.add('confete');
+                confete.style.left = Math.random() * window.innerWidth + 'px';
+                confete.style.backgroundColor = 'hsl(' + Math.random() * 360 + ', 100%, 70%)';
+                document.body.appendChild(confete);
+                setTimeout(() => { confete.remove(); }, 5000);
+            }
+        }
+    </script>
+
+</body>
+</html>
