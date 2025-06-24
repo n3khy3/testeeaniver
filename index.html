@@ -45,35 +45,33 @@
         }
         .confete {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            background: yellow;
-            top: -10px;
             border-radius: 50%;
-            animation: cair 5s linear infinite;
+            top: -10px;
+            opacity: 0.9;
+            animation: cair linear forwards;
         }
         @keyframes cair {
             0% { transform: translateY(0) rotate(0deg); }
-            100% { transform: translateY(100vh) rotate(360deg); }
+            100% { transform: translateY(100vh) rotate(720deg); }
         }
     </style>
 </head>
 <body>
 
     <h1>🎉 Feliz Aniversário, Rutinha! 🎂</h1>
-    <p>🌸 24/06 - o dia da ruty o dia mais que especial né🌸</p>
+    <p>🌸 24/06 - o dia da ruty o dia mais que especial né 🌸</p>
     <p>Clique no botão abaixo para abrir minha surpresa rrsrs</p>
 
     <button class="btn" onclick="mostrarMensagem()">🎈 Mostrar Mensagem 🎈</button>
 
     <div class="mensagem" id="mensagem">
         💕 Olaa minha Rutinha! Hoje, dia 24/06, vamos celebrar muito, e eu não poderia deixar de te desejar tudo de mais lindo,,,, euuuu kkk brincadeira! 💐<br><br>
-        Que seu coração continue transbordando amor, saudavel é claro, e voce continue sendo essa pessoa que voce é, cheia de carinho e coisas boas<br><br>
+        Que seu coração continue transbordando amor, saudável é claro, e que você continue sendo essa pessoa que você é, cheia de carinho e coisas boas<br><br>
         Que essa nova fase venha cheia de sonhos realizados, muitas risadas gostosas, saúde, amor e momentos inesquecíveis! 🌟<br><br>
         Nunca esqueça o quanto você é especial, querida e gata! 💖<br><br>
         Te desejo um aniversário mágico e um ano repleto de coisas boas! 🎂🎁🎊<br><br>
         🎶 Parabéns pra você ruru.. 🎶 <br><br>
-       at; Com muito carinho... ❤️ rafis
+        Com muito carinho... ❤️ Rafis
     </div>
 
     <script>
@@ -83,13 +81,29 @@
         }
 
         function soltarConfete() {
-            for (let i = 0; i < 80; i++) {
+            for (let i = 0; i < 100; i++) {
                 let confete = document.createElement('div');
                 confete.classList.add('confete');
+
+                // Distribuição horizontal mais ampla
                 confete.style.left = Math.random() * window.innerWidth + 'px';
+
+                // Tamanhos variados
+                let tamanho = Math.random() * 8 + 4;  // de 4px a 12px
+                confete.style.width = tamanho + 'px';
+                confete.style.height = tamanho + 'px';
+
+                // Cores vivas
                 confete.style.backgroundColor = 'hsl(' + Math.random() * 360 + ', 100%, 70%)';
+
+                // Velocidade aleatória (entre 3s e 6s)
+                let duracao = Math.random() * 3 + 3;
+                confete.style.animationDuration = duracao + 's';
+
                 document.body.appendChild(confete);
-                setTimeout(() => { confete.remove(); }, 5000);
+
+                // Remover o confete depois que cair
+                setTimeout(() => { confete.remove(); }, duracao * 1000);
             }
         }
     </script>
